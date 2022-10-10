@@ -1,0 +1,96 @@
+q1)
+
+CREATE DATABASE trendytech; //TO create a database trendytech
+
+
+q2) 
+USE trendytech;    //To use the trendytech database
+
+q3)
+select database(); //To confirm in which database user is 
+
+q4)
+//creation of table
+
+CREATE TABLE employee(
+firstname varchar(20),
+middlename varchar(20),
+lastname varchar(20),
+age int,
+salary int,
+location varchar(30)
+);
+
+q5) 
+//TO drop a table named as employee
+
+DROP TABLE employee;
+
+q6)
+//To find the description of table
+
+desc tablename 
+or 
+decribe tablename;
+
+
+q7)
+//to fetch data from a table named as employee
+//Here * means all columns all rows
+
+select * from employee;
+
+
+
+q8)
+//to insert data into table
+
+INSERT INTO employee(firstname,middlename,lastname,age,salary,location) VALUES('Amrit','Kumar','Manash',24,28000,'Kolkata');
+
+//we can also insert into table by skipping the column names but not recomended practice
+
+INSERT INTO employee VALUES('Mishar','Patol','Babu',25,29000,'Patna');
+
+
+//Now if we want to insert data into table but for certain column you dont want to enter any value then you can skip to write that column name like in the below case person do not have any middle name 
+you will find that column will default value as NULL if you are not putting any value
+
+
+INSERT INTO employee(firstname,lastname,age,salary,location) VALUES('Rakesh','Pandey',52,45000,'Patna');
+
+
+//Now suppose if you want to have name as with a quote like Amrit's then for that there are two ways
+
+ 1) Using double quotes
+ 2) Use of \ as a escape sequence that will treat ' as a value itself 
+
+ INSERT INTO employee(firstname,lastname,age,salary,location) VALUES("Amrit's",'Manash',25,30000,'Kolkata');
+
+ INSERT INTO employee(firstname,lastname,age,salary,location) VALUES('Kumar\'s','Babu',26,40000,'Mumbai');
+
+ //Now if you want to insert multiple records at one go
+
+ INSERT INTO employee(firstname,middlename,lastname,age,salary,location) VALUES('Nasim','Ahmad','Baig',25,30000,'Assam'),
+        ('Aman','Kumar','Pandey',20,15000,'Goa'),
+        ('Manish','Kumar','Shah',30,10000,'Delhi');
+
+
+Q9) Usage of NOT NULL Keyword while table creation which signifies that those columns cannot have any NULL VALUES 
+
+CREATE TABLE employee(
+firstname varchar(20) NOT NULL,
+middlename varchar(20),
+lastname varchar(20) NOT NULL,
+age int NOT NULL,
+salary int NOT NULL,
+location varchar(30) NOT NULL);
+
+Q10) Usage of DEFAULT Keyword while table creation 
+
+CREATE TABLE employee(
+firstname varchar(20) NOT NULL,
+middlename varchar(20),
+lastname varchar(20) NOT NULL,
+age int NOT NULL,
+salary int NOT NULL,
+location varchar(30) DEFAULT 'bangalore');
